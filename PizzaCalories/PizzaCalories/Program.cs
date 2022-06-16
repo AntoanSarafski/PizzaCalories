@@ -6,7 +6,7 @@ namespace PizzaCalories
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("CSKA SOFIA !!!");
+            Console.WriteLine("Let's test committing ");
         }
     }
 }
