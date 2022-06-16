@@ -37,7 +37,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (modifiers.ContainsKey(value.ToLower()))
+                if (!modifiers.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -53,7 +53,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (modifiers.ContainsKey(value.ToLower()))
+                if (!modifiers.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
