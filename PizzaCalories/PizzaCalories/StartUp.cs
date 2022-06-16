@@ -9,12 +9,13 @@ namespace PizzaCalories
             string[] input = Console.ReadLine().Split();
             string type = input[0];
             string flourType = input[1];
-            string bakingTechnique = input[2];
-            int weight = int.Parse(input[3]);
+            //string bakingTechnique = input[2];
+            int weight = int.Parse(input[2]);
 
-            Dough dough = new Dough(flourType, bakingTechnique, weight);
+            Topping dough = new Topping(flourType, weight);
 
             Console.WriteLine(dough.Calories);
+
         }
     }
 }
