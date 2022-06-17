@@ -8,16 +8,6 @@ namespace PizzaCalories
     {
         private string toppingType;
         private int weight;
-        
-
-        private readonly Dictionary<string, double> modifiers =
-            new Dictionary<string, double>()
-            { 
-                { "meat", 1.2 },
-                { "veggies", 0.8 },
-                { "cheese", 1.1 },
-                { "sauce", 0.9 },
-            };
 
         public Topping(string toppingType, int weight)
         {
@@ -33,7 +23,7 @@ namespace PizzaCalories
             }
             private set
             {
-                if (!modifiers.ContainsKey(value.ToLower()))
+                if (!Helper.Modifier.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException($"Cannot place {value} on top of your pizza.");
                 }
@@ -60,6 +50,6 @@ namespace PizzaCalories
         public double Calories
             => 2
             * Weight
-            * modifiers[ToppingType.ToLower()];
+            * Helper.Modifier[ToppingType.ToLower()];
     }
 }
