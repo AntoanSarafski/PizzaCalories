@@ -6,17 +6,7 @@ namespace PizzaCalories
 {
     public class Dough
     {
-        // Flour type => White , wholegrain
-        // Baking Tehnique => Crispy , chewy , homemade
-
-        private readonly Dictionary<string, double> modifiers = new Dictionary<string, double>()
-        {
-            { "white" , 1.5 },
-            { "wholegrain" , 1.0 },
-            { "crispy" , 0.9 },
-            { "chewy" , 1.1 },
-            { "homemade" , 1.0 }
-        };
+        
         private string flourType;
         private string bakingTechnique;
         private int weight;
@@ -37,7 +27,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (!modifiers.ContainsKey(value.ToLower()))
+                if (!Helper.Modifier.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -53,7 +43,7 @@ namespace PizzaCalories
             }
             private set 
             {
-                if (!modifiers.ContainsKey(value.ToLower()))
+                if (!Helper.Modifier.ContainsKey(value.ToLower()))
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -82,8 +72,8 @@ namespace PizzaCalories
         public double Calories
             => 2 
             * this.Weight 
-            * modifiers[FlourType.ToLower()] 
-            * modifiers[BakingTechnique.ToLower()]; 
+            * Helper.Modifier[FlourType.ToLower()] 
+            * Helper.Modifier[BakingTechnique.ToLower()]; 
 
     }
 }
